@@ -1,21 +1,12 @@
-body > div.parent-circle {
+body > div.html > div.circle {
     width: 50vw;
     height: 50vw;
     border-radius: 50%;
-    background-color: red;
+    border: 1px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-body > div.parent-circle > div.child-circle {
-    width: 10%;
-    height: 10%;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%) scale(0,0);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
