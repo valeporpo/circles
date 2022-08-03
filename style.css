@@ -2,7 +2,7 @@ body > div.html > div.circle {
     width: 50vw;
     height: 50vw;
     border-radius: 50%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,17 +1,21 @@
 let htmlContainer = document.querySelector('body div.html')
 let innerCircle = document.querySelector('body div.html div.circle')
 let imgsName = [
-   '7-samurai',
-   '13-assassins',
-   'iojimbo',
-   'sanjuro',
-   'equinox-flower',
-   'late-spring',
-   'hidden-fortress',
-   'end-of-summer',
-   'valley-of-the-fangs',
-   'the-assassin'
+   '7-samurai', // ok
+   '13-assassins', //ok
+   'yojimbo', // ok
+   'sanjuro', // ok
+   'equinox-flower', // ok
+   'late-spring', // ok
+   'end-of-summer', // ok
+   'the-assassin', // ok
+   'blood-thirsty',
+   'gojira',
+   'kagemusha'
 ]
+
+let randNum = Math.floor(Math.random() * imgsName.length);
+innerCircle.style.backgroundImage = 'url(img/' + imgsName[randNum] + '.jpg)'
 
 let step = 0.001
 addEventListener("load", function() {
@@ -29,14 +33,26 @@ function getScale(el) {
 }
 
 function createNewCircle(prevEl) {
-   let PrevElId = prevEl.id
+   let prevElId = prevEl.id
    let el = document.createElement('div')
    el.classList.add('circle')
-   let idProg = Number(PrevElId.substring(7)) + 1
+   let idProg = Number(prevElId.substring(7)) + 1
    el.id = 'circle-' + idProg
-   let randNum = Math.floor(Math.random() * imgsName.length);
-   el.style.backgroundImage = 'url(img/' + imgsName[randNum] + '.jpg)'
+   el.style.backgroundImage = 'url(img/' + extractBgImg(prevEl) + '.jpg)'
    return el
+}
+
+function extractBgImg(prevEl) {
+    let randNum = Math.floor(Math.random() * imgsName.length)
+    console.log(prevEl.style.backgroundImage)
+    if(prevEl.style.backgroundImage.indexOf(imgsName[randNum]) == -1) {
+        console.log('ok')
+        return imgsName[randNum]
+    } else {
+        console.log('retry')
+        return extractBgImg(prevEl) 
+    }
+    //
 }
 
 function removeGrandParent(currentEl) {
@@ -53,12 +69,11 @@ function startAnimation(el) {
         let xScaleNew = xScale + step
         let yScaleNew = yScale + step
         el.style.transform = 'translate(-50%, -50%) scale('+xScaleNew+', '+yScaleNew+')'
-        if(xScaleNew == 0.75 || yScaleNew == 0.75) {
-            
-        } else if(xScaleNew >= 1 || yScaleNew >= 1) {
+        if(xScaleNew == 0.95 || yScaleNew == 0.95) {
             let newCircle = createNewCircle(el)
             htmlContainer.append(newCircle)
             startAnimation(newCircle)
+        } else if(xScaleNew >= 1 || yScaleNew >= 1) {
             removeGrandParent(el)
             clearInterval(animation)
         }
