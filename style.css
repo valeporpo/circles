@@ -7,15 +7,6 @@ body > div.html > div.circle {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0,0);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-/*
-body > div.html > div.child-circle {
-    width: 50vw;
-    height: 50vw;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0,0);
-}*/
