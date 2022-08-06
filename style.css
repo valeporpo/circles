@@ -1,10 +1,10 @@
 body {
-    background-color: rgba(223, 220, 70, 0.493);
+  background-color: rgba(223, 220, 70, 0.493);
 }
 
 body > div.html > div.circle {
-    width: 50vw;
-    height: 50vw;
+    width: 75vw;
+    height: 75vw;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -14,16 +14,37 @@ body > div.html > div.circle {
     background-size: cover;
 }
 
-@media only screen and (min-width: 601px) and (max-width: 800px) {
+@media only screen and (max-aspect-ratio: 3/2) and (min-aspect-ratio: 1/1) {
     body > div.html > div.circle {
-      width: 65vw;
-      height: 65vw;
+      width: 55vh;
+      height: 55vh;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-aspect-ratio: 2/1) and (min-aspect-ratio: 3/2) {
     body > div.html > div.circle {
-      width: 75vw;
-      height: 75vw;
+      width: 60vh;
+      height: 60vh;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 3/1) and (min-aspect-ratio: 2/1) {
+    body > div.html > div.circle {
+      width: 75vh;
+      height: 75vh;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 4/1) and (min-aspect-ratio: 3/1) {
+    body > div.html > div.circle {
+      width: 85vh;
+      height: 85vh;
+    }
+}
+
+@media only screen and (min-aspect-ratio: 4/1) {
+    body > div.html > div.circle {
+      width: 90vh;
+      height: 90vh;
     }
 }
